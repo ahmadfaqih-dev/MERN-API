@@ -4,10 +4,12 @@ const bodyParser = require('body-parser');
 const app = express();
 
 const productRoutes = require('./src/routes/products');
+const authRoutes = require('./src/routes/auth');
 
 app.use(bodyParser.json()) // tipeJson
 
-app.use('/', productRoutes);
+app.use('/v1/customer', productRoutes);
+app.use('/v1/auth', authRoutes);
 
 
 // Mengatasi Error CORS ORIGIN
