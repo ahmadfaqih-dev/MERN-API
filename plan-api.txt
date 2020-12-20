@@ -20,7 +20,9 @@ Standart Status Response
 
 GROUP: Authentication
 
+======================================================================================
 [1] - Register
+================
 {root.api}/{version}/auth/register
 
 req:
@@ -43,14 +45,50 @@ res:
 
 err-response:
 400 -> Input yang anda masukan tidak valid
+======================================================================================
 
+======================================================================================
 [2] - Login
+==============
 {root.api}/{version}/auth/login
 
 
+======================================================================================
+
 GROUP: BLOG
 
+======================================================================================
 [1] - Create Blog Post
+=========================
+{root.api}/{version}/blog/Post
+
+req:
+{
+    "title": "Titile Blog Post",
+    "image": "iamge.jpg",
+    "body": "lorem ipsum "
+}
+
+res:
+{
+    "message": "Create Post Success",
+    "data": {
+        "id": 1,
+        "title": "Titile Blog Post",
+        "image": "iamge.jpg",
+        "body": "lorem ipsum",
+        "created_at": "12/12/2020",
+        "author": {
+            "uid": 1,
+            "name": "Ahmad Faqih"
+        }
+    }
+}
+
+err-response:
+400 -> Input yang anda masukan tidak valid
+
+
 [2] - Get Blog Post
 [3] - Upload Blog Post
 [4] - Delete Blog Post
