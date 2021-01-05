@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 
@@ -26,5 +27,8 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 });
 
- 
-app.listen(4000);
+mongoose.connect('mongodb+srv://Faqih:vTxtoomLJiRp6MM3@cluster0.ffxf7.mongodb.net/<dbname>?retryWrites=true&w=majority')
+.then(() => {
+    app.listen(400);
+})
+.catch(err => console.log(err));
